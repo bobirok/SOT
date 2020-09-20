@@ -1,0 +1,20 @@
+plugins {
+    id 'application'
+    id "org.openjfx.javafxplugin" version "0.0.9"
+}
+
+application{
+    //@TODO set your main class name
+    mainClassName = '..add here your main class name...'
+}
+
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+dependencies {
+    // add dependencies for this sub-project
+
+    // include all code from project jms-shared
+    implementation project(':jms-assignment:jms-shared')
+}

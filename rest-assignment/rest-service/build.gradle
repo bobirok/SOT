@@ -1,0 +1,10 @@
+plugins {
+    id 'war'
+}
+
+dependencies {
+    // add dependencies for rest-service here
+
+    // include all code from project rest-shared
+ implementation project(':rest-assignment:rest-shared')
+}
