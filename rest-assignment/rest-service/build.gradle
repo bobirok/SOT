@@ -2,9 +2,14 @@ plugins {
     id 'war'
 }
 
+apply plugin: 'idea'
+
 dependencies {
     // add dependencies for rest-service here
+    implementation group: 'org.glassfish.jersey.bundles', name: 'jaxrs-ri', version: '2.28'
+    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.28'
+    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-jdk-http', version: '2.28'
 
     // include all code from project rest-shared
- implementation project(':rest-assignment:rest-shared')
+    implementation project(':rest-assignment:rest-shared')
 }

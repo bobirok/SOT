@@ -1,4 +1,4 @@
-package src.main.java.library.models;
+package library.models;
 
 public class Book {
     private int _id;
@@ -35,6 +35,10 @@ public class Book {
         this._availableCopies--;
     }
 
+    public void setId(int value) {
+        this._id = value;
+    }
+
     public void setTitle(String value) {
         this._title = value;
     }
@@ -47,7 +51,12 @@ public class Book {
         this._availableCopies = value;
     }
 
-    public boolean hasAvailableCopeis() {
+    public boolean hasAvailableCopies() {
         return this._availableCopies > 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + this._id + " title: " + this._title + " author: " + this._title;
     }
 }

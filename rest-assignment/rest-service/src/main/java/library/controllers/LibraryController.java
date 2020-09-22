@@ -1,20 +1,26 @@
-package src.main.java.library.controllers;
+package library.controllers;
 
-import src.main.java.library.exceptions.BookExistsException;
-import src.main.java.library.exceptions.BookNotFoundException;
-import src.main.java.library.exceptions.BookOutOfOrderException;
-import src.main.java.library.models.Book;
+import library.models.Book;
+import library.exceptions.BookExistsException;
+import library.exceptions.BookNotFoundException;
+import library.exceptions.BookOutOfOrderException;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 public class LibraryController {
+    private static int bookID = 0;
+
     private ArrayList<Book> _books;
     private ArrayList<Book> _borrowedBooks;
 
     public LibraryController(ArrayList<Book> books, ArrayList<Book> borrowedBooks) {
         this._books = new ArrayList<>();
         this._borrowedBooks = borrowedBooks;
+
+        this._books.add(new Book(++bookID, "Harry Potter", "J.K.Rowling", 12));
+        this._books.add(new Book(++bookID, "Data Structures", "Tomas H. Cormen", 20));
+        this._books.add(new Book(++bookID, "Clean Architecture", "Robert Martin", 3));
     }
 
     public ArrayList<Book> getAllBooks() {
@@ -45,22 +51,23 @@ public class LibraryController {
         return book.get();
     }
 
-    public void createBook(int id, String title, String author, int availableCopies) throws BookExistsException {
+    public void createBook(String title, String author, int availableCopies) throws BookExistsException {
         Optional<Book> existingBook = this._books.stream()
                 .filter(x -> x.getAuthor().toLowerCase().equals(title.toLowerCase()))
                 .findFirst();
 
         if(existingBook.isPresent()) throw new BookExistsException("Book with this title exists!");
 
-        this._books.add(new Book(id, title, author, availableCopies));
+        this._books.add(new Book(++bookID, title, author, availableCopies));
     }
 
     public Book updateBook(Book updatedBook) throws BookNotFoundException {
+        System.out.println(updatedBook.toString());
         Optional<Book> existingBook = this._books.stream()
                 .filter(x -> x.getId() == updatedBook.getId())
                 .findFirst();
 
-        if(!existingBook.isPresent()) throw new BookNotFoundException("This book does not eixst");
+        if(!existingBook.isPresent()) throw new BookNotFoundException("This book does not exist");
 
         Book book = existingBook.get();
         book.setTitle(updatedBook.getTitle());
@@ -77,7 +84,7 @@ public class LibraryController {
 
         if(!book.isPresent()) throw new BookNotFoundException("Book with this id does not exist!");
 
-        this._books.remove(book);
+        this._books.remove(book.get());
     }
 
     public void borrowCopyOfBook(int id) throws BookNotFoundException, BookOutOfOrderException {
@@ -87,9 +94,10 @@ public class LibraryController {
 
         if(!book.isPresent()) throw new BookNotFoundException("Book with this id does not exist!");
 
-        if(!book.get().hasAvailableCopeis()) throw new BookOutOfOrderException("No available copies of this book!");
+        if(!book.get().hasAvailableCopies()) throw new BookOutOfOrderException("No available copies of this book!");
 
         book.get().borrowCopyOfBook();
-    }
 
+        this._borrowedBooks.add(book.get());
+    }
 }

@@ -1,4 +1,4 @@
-package src.main.java.library.exceptions;
+package library.exceptions;
 
 public class BookNotFoundException extends Exception {
     public BookNotFoundException() {}
