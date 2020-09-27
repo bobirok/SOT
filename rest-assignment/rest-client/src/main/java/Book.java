@@ -1,5 +1,3 @@
-package library.models;
-
 public class Book {
     private int _id;
     private String _title;

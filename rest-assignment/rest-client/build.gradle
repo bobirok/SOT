@@ -1,6 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
    // add dependencies for rest-client here
+    compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.16'
+    compile group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.16'
+    compile group: 'jakarta.json', name: 'jakarta.json-api', version: '1.1.6'
+    compile group: 'jakarta.xml.bind', name: 'jakarta.xml.bind-api', version: '2.3.2'
+    compile group: 'org.glassfish.jersey.bundles', name: 'jaxrs-ri', version: '2.28'
+    compile files(fileTree(dir: './build/libs', includes: ['*.jar']))
 
     // include all code from project rest-shared
     implementation project(':rest-assignment:rest-shared')

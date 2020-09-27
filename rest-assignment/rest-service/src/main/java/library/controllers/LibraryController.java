@@ -43,7 +43,9 @@ public class LibraryController {
 
     public Book getBookByTitle(String title) throws BookNotFoundException {
         Optional<Book> book = this._books.stream()
-                .filter(x -> x.getAuthor().toLowerCase().equals(title.toLowerCase()))
+                .filter(x -> x.getTitle().toLowerCase().replaceAll(" ", "")
+
+                        .equals(title.toLowerCase().replaceAll(" ", "")))
                 .findFirst();
 
         if(!book.isPresent()) throw new BookNotFoundException("Book with this title does not exist!");
@@ -62,7 +64,6 @@ public class LibraryController {
     }
 
     public Book updateBook(Book updatedBook) throws BookNotFoundException {
-        System.out.println(updatedBook.toString());
         Optional<Book> existingBook = this._books.stream()
                 .filter(x -> x.getId() == updatedBook.getId())
                 .findFirst();
