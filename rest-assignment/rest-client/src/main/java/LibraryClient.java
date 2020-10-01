@@ -1,4 +1,5 @@
 import org.glassfish.jersey.client.ClientConfig;
+import shared.models.Book;
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.*;
@@ -97,12 +98,11 @@ public class LibraryClient {
         }
     }
 
-    public void createBook(int id, String title, String author, int availableCopies) {
+    public void createBook(String title, String author, int availableCopies) {
         Invocation.Builder requestBuilder = this._serviceTarget.path("book")
                 .request().accept(MediaType.TEXT_PLAIN);
 
         Form form = new Form();
-        form.param("id", String.valueOf(id));
         form.param("title", title);
         form.param("author", String.valueOf(author));
         form.param("availableCopies", String.valueOf(availableCopies));
@@ -122,7 +122,7 @@ public class LibraryClient {
     }
 
     public void deleteBook(int id) {
-        Invocation.Builder requestBuilder = this._serviceTarget.path("book/delete?id="+id)
+        Invocation.Builder requestBuilder = this._serviceTarget.path("book/delete").queryParam("id", id)
                 .request().accept(MediaType.TEXT_PLAIN);
 
         Response response = requestBuilder.delete();

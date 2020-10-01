@@ -4,6 +4,7 @@ import library.controllers.LibraryController;
 import library.exceptions.BookExistsException;
 import library.exceptions.BookNotFoundException;
 import library.exceptions.BookOutOfOrderException;
+import shared.models.Book;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -94,7 +95,7 @@ public class LibraryResources {
         }
     }
 
-    @Path("/book")
+    @Path("/book/delete")
     @DELETE
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteBook(@QueryParam("id") int id) {

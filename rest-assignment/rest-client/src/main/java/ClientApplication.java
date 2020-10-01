@@ -1,3 +1,5 @@
+import shared.models.Book;
+
 import java.util.Scanner;
 
 public class ClientApplication {
@@ -8,6 +10,8 @@ public class ClientApplication {
         int choice = 1;
         int bookId = 0;
         String bookTitle = "";
+        String bookAuthor = "";
+        int bookAvailableCopies = 0;
 
         printOptions();
         choice = scanner.nextInt();
@@ -33,6 +37,39 @@ public class ClientApplication {
                     bookTitle = scanner.nextLine();
                     System.out.println(bookTitle);
                     libraryClient.getBookByTitle(bookTitle);
+                    break;
+                case 5:
+                    scanner.nextLine();
+                    System.out.println("Please select title of the book: ");
+                    bookTitle = scanner.nextLine();
+                    System.out.println("Please type the author of the book: ");
+                    bookAuthor = scanner.nextLine();
+                    System.out.print("Please type the available copies of the book: ");
+                    bookAvailableCopies = scanner.nextInt();
+                    libraryClient.createBook(bookTitle, bookAuthor, bookAvailableCopies);
+                    break;
+                case 6:
+                    System.out.println("Please select id of the book you want to delete: ");
+                    bookId = scanner.nextInt();
+                    libraryClient.deleteBook(bookId);
+                    break;
+                case 7:
+                    scanner.nextLine();
+                    System.out.println("Please select the id of the book you want to update: ");
+                    bookId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Please select title of the book: ");
+                    bookTitle = scanner.nextLine();
+                    System.out.println("Please type the author of the book: ");
+                    bookAuthor = scanner.nextLine();
+                    System.out.print("Please type the available copies of the book: ");
+                    bookAvailableCopies = scanner.nextInt();
+                    libraryClient.updateBook(new Book(bookId, bookTitle, bookAuthor, bookAvailableCopies));
+                    break;
+                case 8:
+                    System.out.println("Please select the book you would like to borrow: ");
+                    bookId = scanner.nextInt();
+                    libraryClient.borrowBook(bookId);
                     break;
             }
 
