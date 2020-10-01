@@ -7,4 +7,5 @@ include 'rest-assignment:rest-shared'
 findProject(':rest-assignment:rest-shared')?.name = 'rest-shared'
 include 'jms-assignment:jms-shared'
 findProject(':jms-assignment:jms-shared')?.name = 'jms-shared'
+include 'shared'
 

@@ -1,9 +1,9 @@
 package library.controllers;
 
-import library.models.Book;
 import library.exceptions.BookExistsException;
 import library.exceptions.BookNotFoundException;
 import library.exceptions.BookOutOfOrderException;
+import shared.models.Book;
 
 import java.util.ArrayList;
 import java.util.Optional;

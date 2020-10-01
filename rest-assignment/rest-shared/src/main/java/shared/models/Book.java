@@ -1,4 +1,4 @@
-package library.models;
+package shared.models-shared;
 
 public class Book {
     private int _id;

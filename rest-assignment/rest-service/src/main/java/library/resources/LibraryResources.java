@@ -4,7 +4,6 @@ import library.controllers.LibraryController;
 import library.exceptions.BookExistsException;
 import library.exceptions.BookNotFoundException;
 import library.exceptions.BookOutOfOrderException;
-import library.models.Book;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;

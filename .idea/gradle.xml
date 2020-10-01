@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/rest-assignment/rest-client" />
             <option value="$PROJECT_DIR$/rest-assignment/rest-service" />
             <option value="$PROJECT_DIR$/rest-assignment/rest-shared" />
+            <option value="$PROJECT_DIR$/shared" />
           </set>
         </option>
       </GradleProjectSettings>
