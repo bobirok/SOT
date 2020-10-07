@@ -1,6 +1,6 @@
-package library;
+package fontys.library;
 
-import library.resources.LibraryResources;
+import fontys.library.resources.LibraryResources;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 

@@ -4,11 +4,19 @@ plugins {
 
 apply plugin: 'idea'
 
+war {
+    archiveFileName = 'library.war'
+    from("./web/WEB-INF") {
+        include("web.xml")
+        into("WEB-INF")
+    }
+}
+
 dependencies {
     // add dependencies for rest-service here
-    implementation group: 'org.glassfish.jersey.bundles', name: 'jaxrs-ri', version: '2.28'
-    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.28'
-    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-jdk-http', version: '2.28'
+    implementation group: 'org.glassfish.jersey.bundles', name: 'jaxrs-ri', version: '2.+'
+    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.7'
+    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-jdk-http', version: '2.26'
 
     // include all code from project rest-shared
     implementation project(':rest-assignment:rest-shared')

@@ -1,3 +1,5 @@
+package client;
+
 import org.glassfish.jersey.client.ClientConfig;
 import shared.models.Book;
 
@@ -7,7 +9,7 @@ import java.net.URI;
 import java.util.ArrayList;
 
 public class LibraryClient {
-    private String _url = "http://localhost:9090/library/";
+    private String _url = "http://localhost:8080/library/";
     private ClientConfig _clientConfig;
     private Client _client;
     private URI _baseUri;

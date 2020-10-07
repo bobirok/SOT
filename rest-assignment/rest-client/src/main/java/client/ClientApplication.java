@@ -1,3 +1,5 @@
+package client;
+
 import shared.models.Book;
 
 import java.util.Scanner;
@@ -35,7 +37,6 @@ public class ClientApplication {
                     System.out.println("Please select the title name: ");
                     scanner.nextLine();
                     bookTitle = scanner.nextLine();
-                    System.out.println(bookTitle);
                     libraryClient.getBookByTitle(bookTitle);
                     break;
                 case 5:
@@ -44,7 +45,7 @@ public class ClientApplication {
                     bookTitle = scanner.nextLine();
                     System.out.println("Please type the author of the book: ");
                     bookAuthor = scanner.nextLine();
-                    System.out.print("Please type the available copies of the book: ");
+                    System.out.println("Please type the available copies of the book: ");
                     bookAvailableCopies = scanner.nextInt();
                     libraryClient.createBook(bookTitle, bookAuthor, bookAvailableCopies);
                     break;
@@ -62,7 +63,7 @@ public class ClientApplication {
                     bookTitle = scanner.nextLine();
                     System.out.println("Please type the author of the book: ");
                     bookAuthor = scanner.nextLine();
-                    System.out.print("Please type the available copies of the book: ");
+                    System.out.println("Please type the available copies of the book: ");
                     bookAvailableCopies = scanner.nextInt();
                     libraryClient.updateBook(new Book(bookId, bookTitle, bookAuthor, bookAvailableCopies));
                     break;

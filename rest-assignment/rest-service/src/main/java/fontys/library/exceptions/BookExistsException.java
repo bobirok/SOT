@@ -1,4 +1,4 @@
-package library.exceptions;
+package fontys.library.exceptions;
 
 public class BookExistsException extends Exception {
     public BookExistsException() {}

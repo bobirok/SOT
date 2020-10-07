@@ -57,6 +57,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "ID: " + this._id + " title: " + this._title + " author: " + this._author;
+        return "ID: " + this._id + " title: " + this._title + " author: " + this._author + " available copies: " + this._availableCopies;
     }
 }

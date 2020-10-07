@@ -1,8 +1,8 @@
-package library.controllers;
+package fontys.library.controllers;
 
-import library.exceptions.BookExistsException;
-import library.exceptions.BookNotFoundException;
-import library.exceptions.BookOutOfOrderException;
+import fontys.library.exceptions.BookExistsException;
+import fontys.library.exceptions.BookNotFoundException;
+import fontys.library.exceptions.BookOutOfOrderException;
 import shared.models.Book;
 
 import java.util.ArrayList;

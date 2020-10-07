@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="SharedArtifact">
-    <output-path>$PROJECT_DIR$/out/artifacts/SharedArtifact</output-path>
-    <root id="archive" name="SharedArtifact.jar">
-      <element id="file-copy" path="$PROJECT_DIR$/rest-assignment/rest-shared/src/main/java/shared/models/Book.java" />
-    </root>
-  </artifact>
-</component>

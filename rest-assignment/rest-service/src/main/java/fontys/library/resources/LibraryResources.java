@@ -1,9 +1,9 @@
-package library.resources;
+package fontys.library.resources;
 
-import library.controllers.LibraryController;
-import library.exceptions.BookExistsException;
-import library.exceptions.BookNotFoundException;
-import library.exceptions.BookOutOfOrderException;
+import fontys.library.exceptions.BookExistsException;
+import fontys.library.exceptions.BookNotFoundException;
+import fontys.library.controllers.LibraryController;
+import fontys.library.exceptions.BookOutOfOrderException;
 import shared.models.Book;
 
 import javax.inject.Singleton;
@@ -12,8 +12,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
-@Singleton
+
 @Path("/library")
+@Singleton
 public class LibraryResources {
     private ArrayList<Book> _books = new ArrayList<Book>();
     private ArrayList<Book> _borrowedBooks = new ArrayList<>();
