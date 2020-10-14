@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.ArrayList;
 
 public class LibraryClient {
-    private String _url = "http://localhost:8080/library/";
+    private String _url = "http://localhost:8081/library/";
     private ClientConfig _clientConfig;
     private Client _client;
     private URI _baseUri;

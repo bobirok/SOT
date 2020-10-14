@@ -4,6 +4,17 @@ plugins {
 
 group 'org.example'
 
+task createModelJar(type: Jar, dependsOn: compileJava) {
+    archiveFileName = "serviceModel.jar"
+    from sourceSets.main.output
+    println "created serviceModel.jar from fontys/sot/rest/model/*.class"
+}
+// assuming modules are in directories “project/service/” and “project/client/”
+// copy “service/build/libs/serviceModel.jar” to “client/lib/serviceModel.jar”
+task copyModelJarToClient(type: Copy,dependsOn:[createModelJar]){
+    from "${buildDir}/libs/serviceModel.jar" into "../client/lib/"
+}
+
 repositories {
     mavenCentral()
 }

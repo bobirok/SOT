@@ -5,7 +5,7 @@ plugins {
 
 application{
     //@TODO set your main class name
-    mainClassName = '..add here your main class name...'
+    mainClassName = 'replier.ReplierMain'
 }
 
 javafx {
@@ -14,6 +14,7 @@ javafx {
 
 dependencies {
     // add dependencies for this sub-project
+    implementation group: 'org.apache.activemq', name: 'activemq-client', version: '5.14.5';
 
     // include all code from project jms-shared
     implementation project(':jms-assignment:jms-shared')
